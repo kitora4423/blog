@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Github Pages &#43; Hugoを使ってブログを作った話 &middot;  石のカラト" />
+  
+  <meta property="og:site_name" content="石のカラト" />
+  <meta property="og:url" content="https://kitora4423.github.io/blog/post/20180106/" />
+  
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:article:published_time" content="2018-01-06T01:19:15&#43;09:00" />
+  
+  
+
+  <title>
+     Github Pages &#43; Hugoを使ってブログを作った話 &middot;  石のカラト
+  </title>
+
+  <link rel="stylesheet" href="https://kitora4423.github.io/blog/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://kitora4423.github.io/blog/css/main.css" />
+  <link rel="stylesheet" href="https://kitora4423.github.io/blog/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://kitora4423.github.io/blog/css/github.css" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
+  <link rel="shortcut icon" href="https://kitora4423.github.io/blog/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://kitora4423.github.io/blog/images/apple-touch-icon.png" />
+  
+</head>
+<body>
+    <header class="global-header"  style="background-image:url(https://kitora4423.github.io/blog/images/bg.jpg)">
+    <section class="header-text">
+      <h1><a href="https://kitora4423.github.io/blog/">石のカラト</a></h1>
+      
+      <div class="tag-line">
+        メモ帳代わりの妄言集
+      </div>
+      
+      <div class="sns-links hidden-print">
+  
+  
+  <a href="https://twitter.com/kitora4423" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a href="https://www.pixiv.net/member.php?id=5765903" target="_blank">
+    <i class="fa fa-file-image-o"></i>
+  </a>
+  
+</div>
+
+      
+      <a href="https://kitora4423.github.io/blog/" class="btn-header btn-back hidden-xs">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        &nbsp;Home
+      </a>
+      
+      
+    </section>
+  </header>
+  <main class="container">
+
+
+<article>
+  <header>
+    <h1 class="text-primary">Github Pages &#43; Hugoを使ってブログを作った話</h1>
+    <div class="post-meta clearfix">
+    
+      <div class="post-date pull-left">
+        Posted on
+        <time datetime="2018-01-06T01:19:15&#43;09:00">
+          Jan 6, 2018
+        </time>
+      </div>
+    
+      <div class="pull-right">
+        
+      </div>
+    </div>
+  </header>
+  <section>
+    
+
+
+<figure class="center">
+    
+        <img src="../../images/bg.jpg" />
+    
+    
+</figure>
+
+
+<h3 id="事の始まり">事の始まり</h3>
+
+<p>2018年正月、何となく新しいことがしたくなった時に<a href="https://pages.github.com/">Github Pages</a>なるものを見つけた。<br />
+どうもGithubのリポジトリにPushするだけで簡単に静的Webページが公開できるらしい。<br />
+暇だったこともあり気まぐれでサクッと作ってみることにした。</p>
+
+<h3 id="何を作るか">何を作るか</h3>
+
+<p>Webページを作るとは言っても何を作ろうか…？<br />
+一瞬、HTMLタグ直打ちのネット黎明期みたいな自己紹介サイトでも作ってみようかと思ったが、
+仮にも応用情報技術者の資格を持っている<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>人間として流石にそれはどうなのかと思案し、
+最終的に静的なWebサイトを作成できるフレームワークを使ってみることにした。</p>
+
+<p>探してみると、Go言語製のフレームワーク<a href="https://gohugo.io/">&ldquo;Hugo&rdquo;</a>をオススメしている声が多かった。<br />
+どうやら</p>
+
+<ul>
+<li>Markdown記法が使える</li>
+<li>コンパイルが恐ろしく速い</li>
+<li>導入が簡単</li>
+</ul>
+
+<p>といった利点があるらしい。<br />
+興味を惹かれたので導入を決めた。</p>
+
+<h3 id="hugoの使い方">Hugoの使い方</h3>
+
+<p>Hugoの使い方や導入方法については親切に紹介しているページがネット上に腐るほど転がっているので、
+ここでは備忘録も兼ねて使ったコマンドだけ紹介し、詳細な解説は省く。<br />
+なお、環境としてはBash on Windows(Ubuntu 16.04LTS)<sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">2</a></sup>を使っている。</p>
+
+<pre><code class="language-sh"># aptでインストールするとやたらバージョンが古いので最新版をインストールする
+# xの所は最新バージョンを入れる
+$ wget https://github.com/gohugoio/hugo/releases/download/vx.x.x/hugo_x.x.x_Linux-64bit.deb
+$ sudo dpkg -i hugo_x.x.x_Linux-64bit.deb
+# Goが動く環境があるならこうでもいい
+$ go get -v github.com/gohugoio/hugo
+
+# 新規サイトを作成する
+# my-blogの所は好きな名前を入れる
+$ hugo new site my-blog
+
+# テーマをダウンロードする
+# 今回はvienna(https://github.com/keichi/vienna)というテーマをカスタマイズして使っている
+# テーマなど諸々の設定は下のconfig.tomlを参照のこと
+$ cd /blog/themes
+$ git clone https://github.com/keichi/vienna
+$ cd ..
+
+# 新規Markdownファイルを作成する
+# Hugoがいい感じにテンプレートを作成してくれるのでこれを編集する
+$ hugo new post/newfile.md
+
+# ローカルサーバを起動してWebサイトを確認する
+# URLはデフォルトでは http://localhost:1313/
+$ hugo server
+
+# コンパイル
+$ hugo
+</code></pre>
+
+<p>設定は<code>config.toml</code>を弄ると変更できる。<br />
+今回は次のような設定にしている。</p>
+
+<pre><code>// config.toml
+baseURL = &quot;https://kitora4423.github.io/&quot;
+languageCode = &quot;jp&quot;
+title = &quot;石のカラト&quot;
+publishDir = &quot;docs&quot;
+theme = &quot;vienna&quot;
+hasCJKLanguage = true
+enableEmoji = true
+</code></pre>
+
+<p>特筆すべき点としては<code>publishDir = &quot;docs&quot;</code>でコンパイルしたWebサイトを保存するディレクトリ名をdocsに変更している。<br />
+Github Pagesでは<code>/docs</code>以下をWebサイトとして公開するようにも設定できるため<sup class="footnote-ref" id="fnref:3"><a rel="footnote" href="#fn:3">3</a></sup>、ここであらかじめ名前を変えている。</p>
+
+<p>さて、どれくらい速いのかの確認のため実際にコンパイルしてみた。</p>
+
+<pre><code>$ hugo
+
+                   | EN
++------------------+----+
+  Pages            | 10
+  Paginator pages  |  0
+  Non-page files   |  0
+  Static files     | 14
+  Processed images |  0
+  Aliases          |  1
+  Sitemaps         |  1
+  Cleaned          |  0
+
+Total in 30 ms
+</code></pre>
+
+<p>…速い。まだページを1つしか作っていないのであまり確認の意味は無いかもしれないが、
+公式サイトで&rdquo;The world’s fastest framework for building websites&rdquo;と名乗るだけのことはあるようだ。</p>
+
+<p>ちなみに<code>hugo server</code>でローカルサーバを立てている間にmdファイルを変更して保存すると、
+変更を反映した上で勝手にページをリフレッシュしてくれる。<br />
+しかも反映に数msしか掛からない。凄いし便利。</p>
+
+<h3 id="github-pagesで公開">Github Pagesで公開</h3>
+
+<p>ページをコンパイルした後はGithubのリポジトリにpushする。</p>
+
+<pre><code class="language-sh">$ git init
+$ git remote add origin https://github.com/kitora4423/kitora4423-blog.git
+$ git add .
+$ git commit -m &quot;first commit&quot;
+$ git push -u origin master
+</code></pre>
+
+<p>後は<code>/docs</code>以下を公開するように設定を弄れば終わり。<br />
+思った以上に簡単だった。</p>
+
+<h3 id="このブログの使い道">このブログの使い道</h3>
+
+<p>とりあえずブログを作ってみたが、この先新たに更新するかどうかは全くの未定である。<br />
+更新するかもしれないし、しないかもしれない。<br />
+同人活動の宣伝用に使うかもしれないし、何かの作品の長文レビューを書くのに使うかもしれない。<br />
+本当に今後の気分次第と言った所だ。</p>
+
+<p>…まあ更新したらTwitterに貼るようにはします。</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">情報処理安全確保支援士試験にも合格している。昔からペーパーテストだけはやたら強い。
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">Windows10から使えるようになった機能で、LinuxがWindows上で動くという代物。わざわざ仮想環境を作らなくても良くなったので割と便利。
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:3">他にもmasterブランチを公開する設定、gh-pagesブランチを公開する設定がある。
+ <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+  </section>
+  <footer>
+    
+    
+    
+    <section class="author-info row">
+      <div class="author-avatar col-md-2">
+        
+      </div>
+      <div class="author-meta col-md-6">
+        
+        
+      </div>
+      
+    </section>
+    <ul class="pager">
+      
+      <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+      
+      
+      <li class="next disabled"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+      
+    </ul>
+  </footer>
+</article>
+
+  </main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+      
+    </div>
+    <div class="sns-links hidden-print">
+  
+  
+  <a href="https://twitter.com/kitora4423" target="_blank">
+    <i class="fa fa-twitter"></i>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a href="https://www.pixiv.net/member.php?id=5765903" target="_blank">
+    <i class="fa fa-file-image-o"></i>
+  </a>
+  
+</div>
+
+  </footer>
+
+  <script src="https://kitora4423.github.io/blog/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+  
+</body>
+</html>
+

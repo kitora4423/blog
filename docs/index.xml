@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>石のカラト</title>
+    <link>https://kitora4423.github.io/blog/</link>
+    <description>Recent content on 石のカラト</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>jp</language>
+    <lastBuildDate>Sat, 06 Jan 2018 01:19:15 +0900</lastBuildDate>
+    
+	<atom:link href="https://kitora4423.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Github Pages &#43; Hugoを使ってブログを作った話</title>
+      <link>https://kitora4423.github.io/blog/post/20180106/</link>
+      <pubDate>Sat, 06 Jan 2018 01:19:15 +0900</pubDate>
+      
+      <guid>https://kitora4423.github.io/blog/post/20180106/</guid>
+      <description>事の始まり 2018年正月、何となく新しいことがしたくなった時にGithub Pagesなるものを見つけた。 どうもGithubのリポジトリにPu</description>
+    </item>
+    
+  </channel>
+</rss>

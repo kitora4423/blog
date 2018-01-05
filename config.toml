@@ -1,0 +1,12 @@
+baseURL = "https://kitora4423.github.io/blog/"
+languageCode = "jp"
+title = "石のカラト"
+publishDir = "docs"
+theme = "vienna"
+hasCJKLanguage = true
+enableEmoji = true
+
+[Params]
+  subtitle = "メモ帳代わりの妄言集"
+  twitter = "kitora4423"
+  pixiv = "5765903"
