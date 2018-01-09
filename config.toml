@@ -5,6 +5,7 @@ publishDir = "docs"
 theme = "vienna"
 hasCJKLanguage = true
 enableEmoji = true
+summaryLength = 200
 
 [Params]
   subtitle = "メモ帳代わりの妄言集"
